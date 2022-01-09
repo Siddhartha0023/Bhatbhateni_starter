@@ -13,12 +13,12 @@ public class DbConnection {
         // register the driver class
         try {
             String username = "root";
-            String password = "mypassword";
+            String password = "root";
             Class.forName("com.mysql.cj.jdbc.Driver");
             // create the connection object
             con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/bhatbhateni?characterEncoding=utf8&useSSL=false&autoReconnect=true",
-                    username, null);
+                    username, password);  
             if (con != null) {
                 System.out.println("Connected to BhatBhateni Database");
             } else {
@@ -48,15 +48,15 @@ public class DbConnection {
     public ResultSet retrieve(String query) {
         try {
             rows = st.executeQuery(query);
-            con.close();
+            // con.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return rows;
     }
-    public static void main(String[] args) {
-        new DbConnection();
-    }
+    // public static void main(String[] args) {
+    //     new DbConnection();
+    // }
 }
 
 

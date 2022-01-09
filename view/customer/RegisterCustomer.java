@@ -40,6 +40,18 @@ public class RegisterCustomer{
 
       
         if(password.equals(confirmPassword)){
+            Customer customer =
+            new Customer (fname,lname,gender,phone,address,username,password);
+
+
+            customerController = new CustomerController();
+            int insert = customerController.registerCustomer(customer);
+
+            if(insert>0)
+            JOptionPane.showMessageDialog(null, "Succesfully registered");
+            
+            else
+            JOptionPane.showMessageDialog(null, "Failed to register");
            
         }else{
             JOptionPane.showMessageDialog(null,"Password and Confirm Password does not match");
